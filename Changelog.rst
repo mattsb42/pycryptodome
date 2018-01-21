@@ -4,6 +4,15 @@ Changelog
 X.X.X (...)
 +++++++++++
 
+New features
+------------
+
+* Added a native extension for modular exponentiation, optimized for SSE2 on x86.
+  In the process, we drop support for the arbitrary arithmetic library MPIR
+  on Windows, which is painful to compile and deploy. Modular exponentiation
+  is slower by a factor of 2 with respect to MPIR, but still much faster than
+  Python's own pow() function. Support for the GMP library on Unix remains.
+
 Resolved issues
 ---------------
 
